@@ -129,7 +129,7 @@ namespace SeleniumWithCSharp
         public void switchToAlertsAndAccept()
         {
             IAlert alert = driver.SwitchTo().Alert();
-            alert.Accept
+            alert.Accept();
         }
 
         public void ScrollToElement(By Element)
