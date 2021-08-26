@@ -14,7 +14,7 @@ namespace SeleniumWithCSharp
     {
         IWebDriver driver;
         
-        public IWebDriver getBrowserInstanceCreated(string browser)
+        public IWebDriver GetBrowserInstanceCreated(string browser)
         {
             if (browser.ToLower().Equals("chrome"))
             {

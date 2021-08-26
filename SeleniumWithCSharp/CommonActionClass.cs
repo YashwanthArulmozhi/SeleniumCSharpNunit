@@ -15,25 +15,17 @@ namespace SeleniumWithCSharp
         BrowserClass browserClass = new BrowserClass();
         static IWebDriver driver;
 
-        public IWebDriver initializeDriver(string browser)
+        public IWebDriver InitializeDriver(string browser)
         {
-            driver = browserClass.getBrowserInstanceCreated(browser);
+            driver = browserClass.GetBrowserInstanceCreated(browser);
             return driver;
-        }
-
-        public IList<string> value()
-        {
-            List<string> a = new List<string>();
-            a.Add("Yash");
-            a.Add("Rahul");
-            return a;
         }
 
         public void LaunchApplication(string browserName, string url)
         {
             if (driver == null || driver.ToString().ToLower().Equals("null"))
             {
-                initializeDriver(browserName);
+                InitializeDriver(browserName);
                 driver.Navigate().GoToUrl(url);
                 driver.Manage().Window.Maximize();
             }
@@ -126,7 +118,7 @@ namespace SeleniumWithCSharp
             return options;
         }
 
-        public void switchToAlertsAndAccept()
+        public void SwitchToAlertsAndAccept()
         {
             IAlert alert = driver.SwitchTo().Alert();
             alert.Accept();
@@ -143,7 +135,7 @@ namespace SeleniumWithCSharp
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].focus();",driver.FindElement(Element));
         }
 
-        public void switchWindow()
+        public void SwitchWindow()
         {
             string currentWindow = driver.CurrentWindowHandle;
            List<string> windows = new List<string>(driver.WindowHandles);

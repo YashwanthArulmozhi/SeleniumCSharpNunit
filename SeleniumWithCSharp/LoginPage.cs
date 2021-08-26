@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,11 @@ namespace SeleniumWithCSharp
 
         CommonActionClass commonActions = new CommonActionClass();
 
-        IWebDriver driver;
 
 
         String applicationUrl = "http://thedemosite.co.uk/login.php";
-        String userName = "TestUser1";
-        string password = "Test123";
+        String userName = "TestUser5";
+        string password = "Test126";
 
         private By link_AddUser = By.XPath("//a[contains(text(),'Add a User')]");
         private By input_EmailId = By.Name("username");
@@ -42,9 +42,11 @@ namespace SeleniumWithCSharp
                 }
                 if (commonActions.WaitFromElement(label_Details) != null)
                 {
-                    string data = commonActions.GetTextValue(label_Details);
-                    Console.WriteLine("Data in UI - > " + data);
+                    String userCreateInUI = commonActions.GetTextValue(label_Details).Substring(14,9);
+                    Assert.AreEqual(userName, userCreateInUI);
+                    Console.WriteLine("User Created in UI - >" + userCreateInUI);
                 }
+                
             }
         }
 
