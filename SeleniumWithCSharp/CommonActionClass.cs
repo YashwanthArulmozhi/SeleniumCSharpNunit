@@ -126,6 +126,12 @@ namespace SeleniumWithCSharp
             return options;
         }
 
+        public void switchToAlertsAndAccept()
+        {
+            IAlert alert = driver.SwitchTo().Alert();
+            alert.Accept
+        }
+
         public void ScrollToElement(By Element)
         {
             int locationValue = driver.FindElement(Element).Location.Y;
