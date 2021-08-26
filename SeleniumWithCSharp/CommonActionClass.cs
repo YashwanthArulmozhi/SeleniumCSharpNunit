@@ -112,6 +112,7 @@ namespace SeleniumWithCSharp
         {
             SelectElement select = new SelectElement(driver.FindElement(Element));
             return select.Options;
+
         }
 
         public List<string> GetAllOptionsNamesInDropDown(By Element)
